@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Kegiatan - 15 April 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active-row {
+            background-color: #eff6ff !important; /* Tailwind blue-50 */
+            position: relative;
+        }
+        .active-row td:first-child::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #2563eb; /* Tailwind blue-600 */
+        }
+        /* Styling untuk transisi yang halus */
+        tr {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-4 md:p-8 antialiased">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+        
+        <!-- Header Section -->
+        <div class="bg-slate-800 text-white p-6 border-b-4 border-blue-500">
+            <h1 class="text-2xl md:text-3xl font-bold mb-4">Agenda Kegiatan</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm md:text-base">
+                <div class="flex"><span class="font-semibold w-32">Hari/Tanggal</span><span>: 15 April 2026</span></div>
+                <div class="flex"><span class="font-semibold w-32">Waktu</span><span>: 14:30 - 19:00 WIB</span></div>
+                <div class="flex"><span class="font-semibold w-32">Lokasi</span><span>: AYANA Midplaza Jakarta & Hybrid</span></div>
+                <div class="flex"><span class="font-semibold w-32">Format</span><span>: Diseminasi dan Diskusi Panel</span></div>
+            </div>
+        </div>
+
+        <!-- Status & Clock Section -->
+        <div class="bg-blue-50 p-4 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-center text-sm">
+            <div id="status-indicator" class="font-medium text-blue-800 flex items-center gap-2 mb-2 sm:mb-0">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                </span>
+                Menunggu jadwal acara...
+            </div>
+            <div class="text-center md:text-right">
+                <div class="font-mono bg-white px-3 py-1 rounded border border-blue-200 shadow-sm inline-block">
+                    Waktu Saat Ini: <span id="current-time" class="font-bold text-blue-600">--:--:-- WIB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 text-gray-700 uppercase text-sm leading-normal border-b border-gray-300">
+                        <th class="py-3 px-4 md:px-6 w-1/4 min-w-[120px]">Waktu (WIB)</th>
+                        <th class="py-3 px-4 md:px-6 w-3/4">Sesi</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm md:text-base align-top" id="agenda-body">
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="14:30" data-end="15:00">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">14:30 - 15:00</td>
+                        <td class="py-4 px-4 md:px-6 font-bold text-gray-900">Registrasi</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="15:00" data-end="15:05">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">15:00 - 15:05</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm">Pembukaan</div>
+                            <div class="font-bold text-gray-900">Master of Ceremony</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="15:05" data-end="15:20">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">15:05 - 15:20</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm">Pembukaan</div>
+                            <div class="font-bold text-gray-900">Mr. Samuel Hayes</div>
+                            <div class="text-sm">Head of Digital and Social Affairs, British Embassy in Jakarta</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="15:20" data-end="15:35">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">15:20 - 15:35</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm">Pembukaan</div>
+                            <div class="font-bold text-gray-900">Septian Hario Seto</div>
+                            <div class="text-sm">Dewan Ekonomi Nasional</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="15:35" data-end="15:45">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">15:35 - 15:45</td>
+                        <td class="py-4 px-4 md:px-6 font-bold text-gray-900">Bridging MC</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="15:45" data-end="15:55">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">15:45 - 15:55</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm">Pembukaan Konteks Diskusi</div>
+                            <div class="font-bold text-gray-900">Mr. Prasetya Dwicahya</div>
+                            <div class="text-sm">Managing Partner, AMANA Solutions</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="15:55" data-end="16:15">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">15:55 - 16:15</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm mb-1">Alokasi Waktu: <span class="font-bold text-gray-900">Gambaran Program Perlinsos</span></div>
+                            <div class="font-bold text-gray-900">Mr. Rahmat Danu Andhika</div>
+                            <div class="text-sm">Dewan Ekonomi Nasional</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="16:15" data-end="16:35">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">16:15 - 16:35</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm mb-1">Alokasi Waktu: <span class="font-bold text-gray-900">Hasil studi SROI</span></div>
+                            <div class="font-bold text-gray-900">Tim SROI</div>
+                            <div class="text-sm">AMANA</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="16:35" data-end="16:50">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">16:35 - 16:50</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="font-bold text-gray-900">Tanggapan Panel</div>
+                            <div class="font-bold text-gray-900">Elan Satriawan, M.Ec., Ph.D</div>
+                            <div class="text-sm">Universitas Gadjah Mada</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="16:50" data-end="17:05">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">16:50 - 17:05</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="font-bold text-gray-900">Tanggapan Panel</div>
+                            <div class="font-bold text-gray-900">Firlie H. Ganinduto</div>
+                            <div class="text-sm">Kepala Badan Ekonomi dan Digital KADIN Indonesia</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="17:05" data-end="17:20">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">17:05 - 17:20</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="font-bold text-gray-900">Tanggapan Panel</div>
+                            <div class="font-bold text-gray-900">Septian Hario Seto</div>
+                            <div class="text-sm">Dewan Ekonomi Nasional</div>
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 hover:bg-gray-50" data-start="17:20" data-end="17:50">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">17:20 - 17:50</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="text-gray-500 text-sm mb-1">Alokasi Waktu:</div>
+                            <div class="font-bold text-gray-900">Open Floor Discussion (2-3 pax)</div>
+                        </td>
+                    </tr>
+
+                    <tr class="hover:bg-gray-50" data-start="17:50" data-end="19:00">
+                        <td class="py-4 px-4 md:px-6 font-semibold text-gray-800">17:50 - Selesai</td>
+                        <td class="py-4 px-4 md:px-6">
+                            <div class="border-b border-gray-200 pb-3 mb-3">
+                                <div class="text-gray-500 text-sm">Penutupan</div>
+                                <div class="font-bold text-gray-900">Master of Ceremony</div>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900">Makan Malam & Ramah Tamah</div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Set tanggal acara berlangsung (Tahun, Bulan 0-11, Tanggal)
+        // Bulan di JS mulai dari 0 (0 = Jan, 3 = Apr)
+        const EVENT_YEAR = 2026;
+        const EVENT_MONTH = 3; 
+        const EVENT_DATE = 15;
+
+        function updateClockAndHighlight() {
+            const now = new Date();
+            
+            // Format waktu ke string HH:MM
+            const currentHour = now.getHours().toString().padStart(2, '0');
+            const currentMinute = now.getMinutes().toString().padStart(2, '0');
+            const currentSecond = now.getSeconds().toString().padStart(2, '0');
+            const currentTimeStr = `${currentHour}:${currentMinute}`;
+
+            // Update UI Jam
+            document.getElementById('current-time').innerText = `${currentHour}:${currentMinute}:${currentSecond} WIB`;
+
+            const isEventDay = (now.getFullYear() === EVENT_YEAR && now.getMonth() === EVENT_MONTH && now.getDate() === EVENT_DATE);
+            const statusIndicator = document.getElementById('status-indicator');
+
+            if (!isEventDay) {
+                statusIndicator.innerHTML = `
+                    <span class="w-3 h-3 rounded-full bg-gray-400"></span>
+                    <span class="text-gray-600">Jadwal aktif pada 15 April 2026</span>
+                `;
+                return; // Berhenti di sini jika bukan hari H
+            }
+
+            // Jika hari H, periksa sesi mana yang sedang berjalan
+            let isAnyActive = false;
+            let isFinished = true; 
+            let isWaiting = true;
+
+            const rows = document.querySelectorAll('tr[data-start]');
+            
+            rows.forEach(row => {
+                const start = row.getAttribute('data-start');
+                const end = row.getAttribute('data-end');
+
+                if (currentTimeStr >= start && currentTimeStr < end) {
+                    row.classList.add('active-row');
+                    isAnyActive = true;
+                    isFinished = false;
+                    isWaiting = false;
+                } else {
+                    row.classList.remove('active-row');
+                    if (currentTimeStr < start) {
+                        isFinished = false;
+                    }
+                    if (currentTimeStr >= end) {
+                        isWaiting = false; 
+                    }
+                }
+            });
+
+            if (isAnyActive) {
+                statusIndicator.innerHTML = `
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    <span class="text-green-700 font-semibold">Sesi sedang berlangsung</span>
+                `;
+            } else if (isFinished && !isWaiting) {
+                statusIndicator.innerHTML = `
+                    <span class="w-3 h-3 rounded-full bg-gray-600"></span>
+                    <span class="text-gray-600 font-semibold">Seluruh acara telah selesai.</span>
+                `;
+            } else if (isWaiting) {
+                 statusIndicator.innerHTML = `
+                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                    <span class="text-yellow-700 font-semibold">Menunggu acara dimulai...</span>
+                `;
+            }
+        }
+
+        // Jalankan setiap detik
+        setInterval(updateClockAndHighlight, 1000);
+        updateClockAndHighlight(); // Panggilan pertama segera saat render
+    </script>
+</body>
+</html>
