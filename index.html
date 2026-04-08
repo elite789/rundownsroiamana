@@ -4,7 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Kegiatan - 15 April 2026</title>
+    
+    <!-- Import Font Be Vietnam Pro dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Tailwind untuk memakai Be Vietnam Pro sebagai font sans default -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         .active-row {
             background-color: #eff6ff !important; /* Tailwind blue-50 */
@@ -31,12 +51,25 @@
         
         <!-- Header Section -->
         <div class="bg-slate-800 text-white p-6 border-b-4 border-blue-500">
-            <h1 class="text-2xl md:text-3xl font-bold mb-4">Agenda Kegiatan</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm md:text-base">
-                <div class="flex"><span class="font-semibold w-32">Hari/Tanggal</span><span>: 15 April 2026</span></div>
-                <div class="flex"><span class="font-semibold w-32">Waktu</span><span>: 14:30 - 19:00 WIB</span></div>
-                <div class="flex"><span class="font-semibold w-32">Lokasi</span><span>: AYANA Midplaza Jakarta & Hybrid</span></div>
-                <div class="flex"><span class="font-semibold w-32">Format</span><span>: Diseminasi dan Diskusi Panel</span></div>
+            <h1 class="text-2xl md:text-3xl font-bold mb-5">Agenda Kegiatan</h1>
+            
+            <!-- Grid 3 kolom untuk memastikan titik dua dan isi sejajar sempurna, terutama di layar HP -->
+            <div class="grid grid-cols-[105px_10px_1fr] md:grid-cols-[120px_10px_1fr] gap-y-2 text-sm md:text-base items-start">
+                <div class="font-semibold">Hari/Tanggal</div>
+                <div>:</div>
+                <div>15 April 2026</div>
+                
+                <div class="font-semibold">Waktu</div>
+                <div>:</div>
+                <div>14:30 - 19:00 WIB</div>
+                
+                <div class="font-semibold">Lokasi</div>
+                <div>:</div>
+                <div>AYANA Midplaza Jakarta & Hybrid</div>
+                
+                <div class="font-semibold">Format</div>
+                <div>:</div>
+                <div>Diseminasi dan Diskusi Panel</div>
             </div>
         </div>
 
